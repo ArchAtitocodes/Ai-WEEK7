@@ -716,4 +716,1219 @@ In 2018, Reuters revealed that Amazon had been developing an AI recruiting tool 
 
 #### Evaluation Process
 
-**Phase 1: Pre-
+**Phase 1: Pre-Deployment Testing**
+1. Calculate all metrics on held-out test set
+2. Disaggregate by gender (and intersectional identities)
+3. Generate fairness report card
+4. Independent third-party audit
+5. Legal review for compliance
+6. Ethics committee approval
+
+**Phase 2: A/B Testing**
+1. Deploy to subset of applications (20%)
+2. Compare outcomes: AI-assisted vs. traditional hiring
+3. Monitor metrics in real-time
+4. Halt if fairness violations detected
+
+**Phase 3: Ongoing Monitoring**
+1. Monthly fairness dashboards
+2. Quarterly comprehensive audits
+3. Annual external review
+4. Continuous improvement based on findings
+
+**Impossibility Theorems:**
+Note: Perfect fairness across all metrics simultaneously is mathematically impossible (except in trivial cases). Organizations must prioritize based on values and context. For hiring:
+- **Priority 1**: Equal Opportunity (TPR parity) - don't miss qualified candidates
+- **Priority 2**: Demographic Parity - overall representation
+- **Priority 3**: Predictive Parity - equal quality of hire
+
+---
+
+### Case 2: Facial Recognition in Policing
+
+#### Background
+Facial recognition technology (FRT) has been rapidly adopted by law enforcement agencies worldwide for identifying suspects, finding missing persons, and monitoring public spaces. However, research consistently shows these systems exhibit significantly higher error rates for people of color, women, and elderly individuals.
+
+#### Key Research Findings
+
+**NIST Study (2019):**
+- Tested 189 algorithms from 99 developers
+- False positive rates up to 100x higher for Asian and Black faces vs. white faces
+- Highest errors: Black females (FPR up to 35%)
+- Lowest errors: White males (FPR ~1%)
+
+**MIT Media Lab Study (2018):**
+- Commercial systems (IBM, Microsoft, Face++)
+- Error rates for dark-skinned females: 20-35%
+- Error rates for light-skinned males: <1%
+
+**Real-World Incidents:**
+- **Robert Williams (2020)**: First known wrongful arrest due to FRT in Detroit (Black man)
+- **Michael Oliver (2019)**: Wrongfully arrested in New Jersey
+- **Nijeer Parks (2019)**: Spent 10 days in jail due to FRT misidentification
+
+#### 1. Ethical Risks Discussion
+
+**Risk Category 1: Wrongful Arrests and Criminal Justice Harm**
+
+**Immediate Impacts:**
+- **False Accusations**: Innocent individuals arrested, detained, interrogated
+- **Psychological Trauma**: Fear, anxiety, PTSD from wrongful arrest
+- **Economic Harm**: Legal fees ($10,000-$50,000+), lost wages, job termination
+- **Criminal Records**: Arrests appear in background checks even if charges dropped
+- **Social Stigma**: Damage to reputation in community
+
+**Systemic Amplification:**
+- **Coerced Confessions**: Innocent people may falsely confess under interrogation pressure
+  - Research: 25% of exonerations involved false confessions
+  - Particularly vulnerable: Youth, individuals with disabilities, non-English speakers
+- **Plea Bargains**: Facing trial costs, innocents may plead guilty to lesser charges
+  - 95% of criminal cases resolve via plea bargains
+  - FRT "evidence" pressures defendants even when unreliable
+- **Cascading Consequences**: Arrest → difficulty finding employment, housing, education → poverty → increased system contact
+
+**Disparate Harm:**
+- Black and Latino individuals experience wrongful arrests at higher rates due to higher false positive rates
+- Creates feedback loop: More false arrests → more data associating minorities with crime → model bias reinforcement
+- Erodes presumption of innocence for communities of color
+
+**Life-Altering Consequences:**
+- **Robert Williams Case**: Arrested in front of wife and daughters, held overnight, charges eventually dropped but trauma persists
+- **Families Affected**: Children witnessing parent's arrest, financial strain, relationship stress
+- **Community Impact**: Collective trauma, reduced trust in institutions
+
+**Risk Category 2: Privacy Violations and Surveillance**
+
+**Mass Surveillance Infrastructure:**
+- **Ubiquitous Capture**: Faces captured without consent in public spaces
+  - Streets, parks, transit, stores, events
+  - No reasonable way to avoid being surveilled
+- **Persistent Tracking**: Create comprehensive movement histories
+  - Where you go, when, with whom
+  - Patterns reveal sensitive information (religious attendance, medical visits, romantic relationships, political activities)
+- **Retroactive Investigation**: Search historical footage to track anyone
+  - "Where was this person on November 15 at 3pm?"
+  - No warrant needed for past public movements in many jurisdictions
+
+**Chilling Effects on Fundamental Rights:**
+- **Freedom of Assembly**: Protesters fear identification and retaliation
+  - Hong Kong protests: Demonstrators wore masks, destroyed cameras
+  - Research: Surveillance reduces protest attendance by 30-50%
+  - Particularly impactful for vulnerable groups (undocumented immigrants, whistleblowers)
+- **Freedom of Association**: Reluctance to attend controversial meetings, support causes
+- **Freedom of Speech**: Self-censorship in public spaces
+- **Anonymous Tips**: Witnesses fear coming forward if identifiable
+
+**Intimate Privacy Invasion:**
+- **Sensitive Locations**: FRT near mental health clinics, abortion providers, mosques, LGBTQ+ centers reveals private information
+- **Relationship Mapping**: Identifies who you spend time with (political affiliations, romantic relationships)
+- **Behavioral Profiling**: Patterns reveal lifestyle, health status, financial circumstances
+
+**Data Perpetuity:**
+- **No Expiration**: Biometric data persists indefinitely
+- **Data Breaches**: Law enforcement databases are hacking targets
+  - 2019: Customs and Border Protection breach exposed 100,000 face images
+- **Mission Creep**: Data collected for one purpose repurposed (terrorism → immigration enforcement → protest monitoring)
+
+**Lack of Consent:**
+- Individuals never agreed to become part of facial recognition databases
+- Driver's license photos used without explicit consent for FRT
+- Photos scraped from social media (Clearview AI: 3+ billion images from Facebook, Instagram, etc.)
+
+**Risk Category 3: Due Process Violations**
+
+**Opacity and Uncontestability:**
+- **Black Box Systems**: Defendants often unaware FRT was used in their investigation
+- **Proprietary Algorithms**: "Trade secret" claims prevent examination of methods
+- **No Expert Cross-Examination**: Defense cannot challenge FRT evidence effectively without access to system details
+- **Low Transparency**: Police reports may say "investigative lead" without disclosing FRT involvement
+
+**Evidentiary Concerns:**
+- **Reliability Questions**: Error rates unknown for specific deployment conditions
+  - Performance varies by: camera quality, lighting, angle, distance, occlusion (masks, glasses), age of photo
+- **Lack of Standards**: No uniform accuracy requirements for law enforcement use
+- **Confirmation Bias**: Officers more likely to see "match" when expecting one
+- **Insufficient Validation**: Human reviewers may rubber-stamp AI recommendations
+
+**Compounding Disadvantages:**
+- **Presumption of Guilt**: FRT "match" creates presumption of involvement before investigation begins
+- **Burden Reversal**: Defendants must prove they're not the person in image (difficult without technical expertise)
+- **Inadequate Legal Representation**: Public defenders lack resources to challenge FRT evidence
+- **Judicial Unfamiliarity**: Judges may not understand FRT limitations, overweight reliability
+
+**Risk Category 4: Discrimination and Systemic Racism**
+
+**Differential Error Rates as Discrimination:**
+- Higher false positive rates for minorities = discrimination in its effect
+- Violates Equal Protection Clause (14th Amendment)
+- Creates two-tiered justice system based on appearance
+
+**Targeting and Over-Policing:**
+- **Deployment Patterns**: FRT disproportionately deployed in minority neighborhoods
+  - Example: Detroit's "Green Light" camera network concentrated in Black communities
+- **Database Composition**: Mugshot databases over-represent people of color due to historical over-policing
+  - Creates "prior probability" bias: More Black faces in "criminal" database
+- **Investigative Focus**: FRT used more for property crimes in minority areas, less for white-collar crimes
+
+**Reinforcing Existing Bias:**
+- **Feedback Loops**: 
+  1. Over-policing of minority communities → More arrests → More faces in database
+  2. More database entries → More false matches → More arrests
+  3. Cycle intensifies over time
+- **Legitimizing Bias**: Technology veneer makes discrimination appear objective, scientific
+- **Automating Discrimination**: Codifies human bias into systems that operate at scale
+
+**Historical Context:**
+- FRT continues legacy of discriminatory identification practices
+  - "Rogue's Gallery" photos targeted immigrants, poor
+  - Mugshot files disproportionately Black and brown faces since inception
+  - FRT automates this discriminatory history
+
+**Risk Category 5: Erosion of Trust**
+
+**Community-Police Relations:**
+- **Distrust**: Communities feel surveilled, targeted, not protected
+- **Reduced Cooperation**: Witnesses reluctant to come forward, report crimes
+  - Research: Surveillance reduces crime reporting by 20-30%
+- **Legitimacy Crisis**: Perception of police as occupying force rather than community partners
+- **Intergenerational Trauma**: Adds to historical harms from policing (slavery, Jim Crow, war on drugs)
+
+**Democratic Participation:**
+- **Disengagement**: Surveillance discourages civic participation
+- **Power Imbalance**: Citizens monitored while police operations remain opaque
+- **Accountability Deficit**: FRT used on civilians but rarely on police misconduct
+
+**Vulnerable Communities Most Affected:**
+- Immigrants (documented and undocumented) fear ICE collaboration
+- Muslims face increased suspicion, profiling
+- Protesters and activists risk retaliation
+- LGBTQ+ individuals in areas where identity is criminalized or stigmatized
+
+**Risk Category 6: Function Creep and Authoritarian Potential**
+
+**Expansion Beyond Initial Purpose:**
+- Deployed for "finding violent criminals" but expanded to:
+  - Minor offenses (shoplifting, fare evasion)
+  - Civil violations (parking tickets)
+  - Immigration enforcement
+  - School discipline
+  - Public benefit fraud investigation
+
+**Authoritarian Applications:**
+- **Political Suppression**: Identifying dissidents, protesters, opposition members
+- **Social Control**: China's social credit system integrates FRT
+- **Predictive Policing**: Pre-emptive action based on profiles
+- **Behavioral Manipulation**: Surveillance changes behavior (Panopticon effect)
+
+**Normalization Risks:**
+- Once accepted in policing, expands to: employment screening, dating apps, retail, education
+- Habituation to constant surveillance erodes privacy norms
+
+**Risk Category 7: Technical Limitations and Misplaced Confidence**
+
+**Accuracy Overstated:**
+- Lab performance (controlled conditions, high-quality images) != real-world performance
+- Vendors advertise "99% accuracy" but this doesn't account for:
+  - Demographic variations
+  - Poor image quality
+  - Spoofing/adversarial attacks
+  - Database size effects (larger databases = more false matches)
+
+**Base Rate Fallacy:**
+- Even with 99% accuracy, if searching database of 1 million for 1 suspect:
+  - 10,000 false positives (1% of 1 million)
+  - Overwhelms true positive signal
+
+**Operator Error:**
+- Human reviewers make mistakes:
+  - Fatigue, confirmation bias, inadequate training
+  - Research: Humans worsen FRT accuracy when given "AI assistance"
+
+**Adversarial Vulnerabilities:**
+- FRT can be fooled by: makeup, printed masks, adversarial patterns
+- Arms race between evasion and detection techniques
+
+---
+
+#### 2. Policy Recommendations for Responsible Deployment
+
+Given the severe ethical risks, the threshold question is: **Should facial recognition be used in policing at all?** Many advocates argue for complete bans. However, if deployment proceeds, the following policies are essential safeguards.
+
+**Policy 1: Moratorium and Independent Evaluation**
+
+**Immediate Action:**
+- **Halt Deployment**: Suspend all facial recognition use in law enforcement pending comprehensive review
+- **Independent Audit**: Third-party evaluation by:
+  - Civil rights organizations
+  - Academic researchers
+  - Technical experts
+  - Community representatives
+- **Public Report**: Findings published with raw data, methodology, limitations
+
+**Evaluation Criteria:**
+- Does FRT demonstrably improve public safety?
+- Do benefits outweigh privacy, civil rights costs?
+- Are less invasive alternatives available?
+- Can identified harms be adequately mitigated?
+
+**Renewal Requirements:**
+- Re-authorization every 2 years based on demonstrated benefits, no documented harms
+- Burden of proof on proponents to justify continuation
+
+**Policy 2: Strict Use Case Limitations**
+
+**Permissible Uses (If Any):**
+- **Violent Crime Investigation Only**: Homicide, kidnapping, armed robbery, aggravated assault, terrorism
+- **Missing Persons**: Finding endangered individuals (children, elderly with dementia, abduction victims)
+- **Victim Identification**: Identifying deceased individuals
+
+**Prohibited Uses:**
+- Minor offenses (misdemeanors, traffic violations, ordinance violations)
+- Protest surveillance or monitoring First Amendment activities
+- Immigration enforcement or ICE collaboration
+- School surveillance
+- Real-time, continuous public surveillance
+- Predictive policing or pre-crime applications
+- Identifying anonymous tipsters, witnesses, journalists, whistleblowers
+- Commercial purposes (sharing with private entities)
+
+**Geographic Restrictions:**
+- Prohibited near: places of worship, medical facilities, courthouses, voting locations, schools
+
+**Policy 3: Mandatory Accuracy Standards**
+
+**Pre-Deployment Requirements:**
+- **Independent Testing**: NIST or equivalent evaluation
+- **Minimum Accuracy**: >99% true positive rate, <1% false positive rate **for all demographic groups**
+- **Disaggregated Reporting**: Performance metrics by:
+  - Race/ethnicity (at least 6 categories)
+  - Gender
+  - Age groups
+  - Skin tone (Fitzpatrick scale)
+- **Performance Parity**: False positive rates must be within 0.5% across all groups
+- **System Suspension**: Immediate halt if disparities exceed thresholds
+
+**Operational Monitoring:**
+- **Real-World Validation**: Quarterly audits in actual deployment conditions
+  - Test with images matching typical quality (not just high-quality photos)
+  - Include occlusions (masks, glasses, hats)
+  - Vary lighting, angles, distances
+- **Error Tracking**: Log every false match with demographic analysis
+- **Public Transparency**: Annual reports on accuracy, error rates, misidentifications
+
+**Technology Certification:**
+- Approved vendor list based on audited performance
+- Re-certification annually as algorithms update
+- Decertification for systems failing standards
+
+**Policy 4: Judicial Oversight and Warrants**
+
+**Warrant Requirement:**
+- **Probable Cause**: Must have independent evidence justifying search before using FRT
+- **Judge Authorization**: Warrant required for each FRT search
+- **Specificity**: Warrant describes:
+  - Particular suspect being sought
+  - Specific databases to be searched
+  - Time range of footage
+  - Geographic scope
+
+**Exceptions:**
+- **Exigent Circumstances**: Immediate danger to life
+  - Must be documented, reviewed post-hoc
+  - Narrow: Active shooter, kidnapping in progress, imminent terrorist attack
+
+**Warrant Content:**
+- Judicial order must acknowledge:
+  - FRT error rates and limitations
+  - No basis for arrest solely on FRT match
+  - Human verification required
+  - Defendant notification required
+
+**Policy 5: Database Restrictions**
+
+**Permissible Databases:**
+- **Booking Photos Only**: Mugshots from arrests
+  - Must be expunged if charges dropped or acquittal
+- **Consented Submissions**: Individuals voluntarily provide photo (missing persons)
+
+**Prohibited Sources:**
+- Driver's license photos (unless explicit FRT consent obtained)
+- Passport photos
+- Social media platforms
+- Commercial datasets (Clearview AI-style scraping)
+- School photos, employee databases
+- Private sector sources without individual consent
+
+**Data Retention:**
+- **Match Results**: Deleted after case resolution
+- **Non-Matches**: Deleted immediately (no search history retention)
+- **Audit Logs**: Retained for oversight, anonymized where possible
+
+**Data Security:**
+- Encryption at rest and in transit
+- Access controls (multi-factor authentication)
+- Intrusion detection systems
+- Regular security audits
+- Breach notification within 24 hours
+
+**Policy 6: Transparency and Accountability**
+
+**Public Disclosure:**
+- **Technology Use**: Agencies must publicly disclose:
+  - FRT systems in use (vendors, capabilities)
+  - Policies governing use
+  - Oversight mechanisms
+  - Complaint procedures
+- **Usage Statistics**: Quarterly reports including:
+  - Number of searches
+  - Number of matches
+  - Number leading to arrests
+  - Conviction rates
+  - False positive incidents
+  - Demographic breakdown
+
+**Defendant Notification:**
+- **Mandatory Disclosure**: Prosecutors must inform defendants when FRT played any role in investigation
+- **Discovery**: Defense entitled to:
+  - FRT system documentation
+  - Accuracy test results
+  - Images compared
+  - Match scores/confidence levels
+  - Operator training records
+- **Expert Challenge**: Right to independent expert evaluation of FRT evidence
+
+**Audit Trails:**
+- **Immutable Logs**: Every FRT query logged with:
+  - Operator identity
+  - Timestamp
+  - Warrant information
+  - Search parameters
+  - Results
+- **Supervisor Review**: Random sampling of queries for appropriateness
+- **External Audits**: Annual review by civilian oversight board
+
+**Policy 7: Community Oversight and Consent**
+
+**Democratic Control:**
+- **Local Approval**: City council or county board must approve FRT adoption via public vote
+- **Community Input**: Mandatory public hearings before adoption
+  - Minimum 3 hearings in affected communities
+  - Accessible times, locations, languages
+  - Written comment period (30 days minimum)
+
+**Civilian Oversight Board:**
+- **Composition**:
+  - Community members (majority from over-policed neighborhoods)
+  - Civil rights attorneys
+  - Technical experts
+  - Representatives from affected communities (immigrants, people of color, activists)
+- **Powers**:
+  - Review all FRT policies
+  - Access audit logs and statistics
+  - Investigate complaints
+  - Recommend suspensions
+  - Subpoena authority
+
+**Opt-Out Rights:**
+- Municipalities can ban FRT within their jurisdiction
+- Current bans: San Francisco, Boston, Portland (OR), Oakland, Minneapolis, others
+
+**Policy 8: Training and Human Review**
+
+**Officer Training Requirements:**
+- **Mandatory Curriculum** (minimum 8 hours):
+  - FRT capabilities and limitations
+  - Error rates and demographic disparities
+  - Legal requirements and policies
+  - Implicit bias recognition
+  - Case studies of wrongful identifications
+- **Annual Recertification**
+- **Competency Testing**: Must pass exam to use FRT
+
+**Human Verification Protocol:**
+- **No Automated Arrests**: FRT match alone is never sufficient for arrest
+- **Independent Review**: At least two trained analysts must verify match
+- **Comparison Documentation**: Side-by-side photo comparison with features analysis
+- **Supervisor Approval**: Lieutenant or above must approve before action taken
+- **Contextual Corroboration**: Additional evidence (alibi check, other witnesses, forensic evidence) required
+
+**Bias Mitigation Training:**
+- Recognition of cross-race effect (people less accurate identifying other-race faces)
+- Debiasing techniques
+- Heightened scrutiny for minority matches
+
+**Policy 9: Victim Support and Remedies**
+
+**Immediate Response to Misidentification:**
+- Immediate release from custody
+- Expedited record expungement
+- Public apology and correction
+
+**Compensation:**
+- **Civil Liability**: Waiver of qualified immunity for FRT misidentifications
+- **Damages**: Compensation for:
+  - Lost wages
+  - Legal fees
+  - Emotional distress
+  - Reputation harm
+- **Exemplary Damages**: If reckless disregard for FRT limitations
+
+**Legal Assistance:**
+- Free legal representation for victims
+- Fast-track expungement processes
+- Support services (counseling, job placement assistance)
+
+**Policy 10: Ongoing Research and Improvement**
+
+**Funded Research:**
+- Independent research on:
+  - FRT accuracy in real-world conditions
+  - Demographic disparities
+  - Long-term community impacts
+  - Bias mitigation techniques
+  - Alternative investigation methods
+
+**Technology Standards Development:**
+- Collaboration with NIST, ACM, IEEE to develop:
+  - Performance benchmarks
+  - Fairness metrics
+  - Testing protocols
+  - Best practices
+
+**Continuous Improvement:**
+- Policies updated based on research findings
+- Technology upgrades required to meet evolving standards
+- Lessons learned from incidents incorporated into training
+
+**Policy 11: Sunset Provisions**
+
+**Automatic Expiration:**
+- FRT authorization expires after 2 years unless renewed
+- Renewal requires:
+  - Demonstrated public safety benefits
+  - No documented civil rights violations
+  - Compliance with all policies
+  - Community support (public hearing + vote)
+
+**Termination Triggers:**
+- Program terminated if:
+  - More than 3 misidentifications in 12 months
+  - Persistent demographic disparities
+  - Policy violations
+  - Loss of community trust
+  - Better alternatives available
+
+**Alternative Approaches:**
+- Invest in traditional policing methods: witness interviews, forensic evidence, community relationships
+- Consider abolishing FRT entirely in favor of less invasive investigative techniques
+
+---
+
+## 🔬 Part 3: Practical Audit (25%)
+
+### Overview
+This section provides a hands-on analysis of the COMPAS Recidivism Dataset using Python and IBM's AI Fairness 360 toolkit to identify and measure racial bias in criminal risk assessment.
+
+### Dataset Information
+
+**COMPAS (Correctional Offender Management Profiling for Alternative Sanctions)**
+- **Developer**: Northpointe (now Equivant)
+- **Purpose**: Predict likelihood of criminal reoffending
+- **Use**: Informs bail, sentencing, parole decisions across US courts
+- **Output**: Risk scores from 1-10 (1=lowest risk, 10=highest risk)
+
+**ProPublica's Analysis (2016)**
+- **Source**: Public records from Broward County, Florida
+- **Dataset Size**: 7,214 defendants screened 2013-2014
+- **Follow-up**: Two-year tracking of actual recidivism
+- **Key Finding**: Algorithm biased against Black defendants
+
+**Dataset Variables:**
+- Demographics: age, sex, race
+- Criminal history: prior convictions, charge degree
+- COMPAS score: decile_score (1-10), score_text (Low/Medium/High)
+- Outcome: two_year_recid (1=reoffended, 0=did not)
+
+### Technical Requirements
+
+**Python Libraries:**
+```bash
+pip install aif360==0.5.0
+pip install pandas==1.5.3
+pip install numpy==1.24.3
+pip install matplotlib==3.7.1
+pip install seaborn==0.12.2
+pip install scikit-learn==1.2.2
+pip install jupyter
+```
+
+**System Requirements:**
+- Python 3.8+
+- 4GB RAM minimum
+- Jupyter Notebook (recommended for interactive analysis)
+
+### Code Structure
+
+The audit script (`compas_bias_audit.py`) contains:
+
+**1. Data Loading (`load_compas_data`)**
+- Imports COMPAS dataset via AIF360's built-in loader
+- Converts to pandas DataFrame for analysis
+- Displays basic dataset information
+
+**2. Exploratory Data Analysis (`exploratory_analysis`)**
+- Examines racial composition of dataset
+- Calculates actual recidivism rates by race
+- Analyzes COMPAS score distribution by race
+- Generates 4-panel visualization:
+  - Race distribution bar chart
+  - Actual recidivism rates by race
+  - Average COMPAS scores by race
+  - Score distribution comparison (African-American vs. Caucasian)
+
+**3. Fairness Metrics Calculation (`analyze_fairness_metrics`)**
+- Uses AIF360's BinaryLabelDatasetMetric
+- Calculates:
+  - **Statistical Parity Difference**: Difference in positive prediction rates between groups
+  - **Disparate Impact**: Ratio of positive prediction rates (legal threshold: 0.8)
+  - **Base Rate**: Actual outcome rates by group
+- Interprets metrics with fairness thresholds
+
+**4. Error Rate Analysis (`analyze_error_rates`)**
+- Defines "high risk" threshold (decile_score >= 5)
+- Calculates confusion matrix metrics by race:
+  - False Positive Rate (FPR): Non-recidivists incorrectly labeled high-risk
+  - False Negative Rate (FNR): Recidivists incorrectly labeled low-risk
+  - Precision: Accuracy of high-risk predictions
+  - Recall: Coverage of actual recidivists
+- Visualizes FPR and FNR disparities
+
+**5. Bias Mitigation (`mitigate_bias`)**
+- Applies Reweighing algorithm (preprocessing technique)
+- Adjusts instance weights to remove correlation between protected attribute and labels
+- Compares fairness metrics before/after mitigation
+- Visualizes improvement in fairness
+
+**6. Main Execution (`main`)**
+- Orchestrates all analysis steps
+- Generates three PNG visualizations
+- Provides summary of findings
+
+### Running the Analysis
+
+**Step 1: Set Up Environment**
+```bash
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+**Step 2: Execute Script**
+```bash
+# Run complete analysis
+python compas_bias_audit.py
+
+# Or use Jupyter Notebook
+jupyter notebook compas_bias_audit.ipynb
+```
+
+**Step 3: Review Outputs**
+- `compas_exploratory_analysis.png`: Initial data exploration
+- `compas_error_rates.png`: False positive/negative rate comparison
+- `compas_bias_mitigation.png`: Before/after fairness metrics
+
+### Expected Results
+
+**Key Findings:**
+
+**1. Disparate Impact: 0.64**
+- African-Americans flagged as high-risk at 1.56x the rate of Caucasians
+- Well below 0.8 legal threshold (indicates discrimination)
+- Violates EEOC Uniform Guidelines
+
+**2. False Positive Rate Disparity:**
+- African-American: ~45%
+- Caucasian: ~23%
+- **Impact**: Black defendants who will NOT reoffend are labeled high-risk at nearly double the rate
+
+**3. False Negative Rate Inversion:**
+- African-American: ~28%
+- Caucasian: ~48%
+- **Impact**: White defendants who WILL reoffend are incorrectly labeled low-risk more often
+
+**4. Calibration Issues:**
+- COMPAS scores mean different things for different races
+- A "7" risk score has different actual recidivism probability for Black vs. White defendants
+
+**5. Impossibility of Fairness:**
+- Cannot simultaneously achieve:
+  - Equal false positive rates AND
+  - Equal false negative rates AND
+  - Calibration
+- Must choose which fairness criterion to prioritize
+
+### Interpretation
+
+**Why This Matters:**
+- Higher false positives for Black defendants → Harsher sentences, denied bail/parole
+- Higher false negatives for White defendants → More lenient treatment
+- Algorithm systematically treats races differently
+- Automates and legitimizes racial discrimination
+
+**Root Causes:**
+- **Training data bias**: Historical over-policing of Black communities
+- **Proxy variables**: Features correlated with race (zip code, prior arrests)
+- **Recidivism definition**: Re-arrest (not re-offense) reflects policing patterns
+- **Base rate differences**: Groups have different recidivism rates due to systemic factors
+
+### Remediation Recommendations
+
+**From Audit Report:**
+
+**Immediate Actions:**
+1. **Implement Reweighing**: Demonstrated to improve Disparate Impact from 0.64 to 0.89
+2. **Adjust Thresholds**: Use different cutoff scores to equalize false positive rates
+3. **Remove Proxies**: Eliminate features that correlate with race
+
+**Long-term Solutions:**
+1. **Retrain with Balanced Data**: Account for systemic over-policing
+2. **Continuous Monitoring**: Quarterly fairness audits with public reporting
+3. **Human Override**: Require judicial review, never use algorithm alone
+4. **Consider Abolition**: Evaluate whether algorithmic risk assessment can be fair
+
+### Additional Analysis Extensions
+
+**For Advanced Students:**
+
+1. **Intersectional Analysis**
+   ```python
+   # Analyze age + race intersections
+   for race in df['race'].unique():
+       for age_group in ['<25', '25-45', '45+']:
+           subgroup = df[(df.race==race) & (df.age_cat==age_group)]
+           calculate_metrics(subgroup)
+   ```
+
+2. **Counterfactual Fairness**
+   ```python
+   # Test: Does changing race alone change prediction?
+   for idx in sample_indices:
+       original_pred = model.predict(df.iloc[idx])
+       df_counterfactual = df.iloc[idx].copy()
+       df_counterfactual['race'] = flip_race(df_counterfactual['race'])
+       counterfactual_pred = model.predict(df_counterfactual)
+       if original_pred != counterfactual_pred:
+           print(f"Prediction changed solely due to race: {idx}")
+   ```
+
+3. **Temporal Analysis**
+   ```python
+   # How do scores change over time?
+   df_2013 = df[df.screening_date.year == 2013]
+   df_2014 = df[df.screening_date.year == 2014]
+   compare_metrics(df_2013, df_2014)
+   ```
+
+4. **Feature Importance for Bias**
+   ```python
+   from sklearn.ensemble import RandomForestClassifier
+   import shap
+   
+   # Train model
+   rf = RandomForestClassifier()
+   rf.fit(X_train, y_train)
+   
+   # SHAP analysis
+   explainer = shap.TreeExplainer(rf)
+   shap_values = explainer.shap_values(X_test)
+   
+   # Compare feature importance by race
+   shap_aa = shap_values[df_test.race=='African-American']
+   shap_c = shap_values[df_test.race=='Caucasian']
+   ```
+
+---
+
+## 💭 Part 4: Ethical Reflection (5%)
+
+### Purpose
+This reflection demonstrates personal commitment to ethical AI development through concrete planning for a real or hypothetical project.
+
+### Structure
+
+**Your reflection should include:**
+
+1. **Project Description** (1 paragraph)
+   - What AI system are you building/considering?
+   - What problem does it solve?
+   - Who are the stakeholders?
+
+2. **Ethical Risks Identification** (1-2 paragraphs)
+   - What could go wrong?
+   - Who might be harmed?
+   - What biases might exist?
+
+3. **Ethical Principles Application** (Main section - 3-4 paragraphs)
+   - Select 3-5 relevant ethical principles (from Part 1)
+   - For EACH principle:
+     - Explain how it applies to your project
+     - Provide 3+ specific, concrete actions you'll take
+     - Mention potential trade-offs or challenges
+
+4. **Accountability Statement** (1 paragraph)
+   - Personal commitment to ethics
+   - What you'll do if conflicts arise
+   - How you'll stay vigilant
+
+### Example Reflection Template
+
+```markdown
+## Project: [Your AI System Name]
+
+### Context
+I am developing [description], which aims to [purpose]. The primary stakeholders 
+include [list], and the system will [impact].
+
+### Ethical Risks
+This project raises concerns about [risk 1], [risk 2], and [risk 3]. 
+Specifically, [vulnerable group] could be harmed through [mechanism]. 
+Additionally, [systemic risk] could emerge if [scenario].
+
+### Ethical Principles
+
+#### 1. [Principle Name]
+**Application**: [How this principle applies to your project]
+
+**Concrete Actions**:
+- **Action 1**: [Specific, measurable commitment]
+  - Implementation: [How you'll do it]
+  - Timeline: [When]
+  - Accountability: [Who oversees]
+  
+- **Action 2**: [Specific, measurable commitment]
+- **Action 3**: [Specific, measurable commitment]
+
+**Challenges**: [Anticipated difficulties and how you'll address them]
+
+[Repeat for each principle]
+
+### Accountability
+I commit to [personal statement]. If I discover [ethical violation], I will 
+[concrete response]. I recognize that [limitation acknowledgment] and will 
+[ongoing vigilance plan].
+```
+
+### Evaluation Criteria
+
+Your reflection will be assessed on:
+
+1. **Depth of Analysis** (40%)
+   - Thorough identification of ethical risks
+   - Understanding of how principles apply to your specific context
+   - Recognition of trade-offs and complexity
+
+2. **Concreteness** (30%)
+   - Specific, actionable commitments (not vague promises)
+   - Measurable outcomes
+   - Clear implementation plans
+
+3. **Comprehensiveness** (20%)
+   - Multiple ethical dimensions considered
+   - Addresses various stakeholders
+   - Long-term perspective
+
+4. **Personal Accountability** (10%)
+   - Genuine personal commitment
+   - Realistic self-assessment
+   - Willingness to make difficult choices
+
+### Common Pitfalls to Avoid
+
+❌ **Vague Commitments**: "I will try to be fair"
+✅ **Specific Actions**: "I will conduct quarterly bias audits measuring false positive rates disaggregated by race and gender, with automatic system suspension if disparities exceed 5%"
+
+❌ **Surface-Level**: "Privacy is important so I'll protect data"
+✅ **Detailed Planning**: "I will implement differential privacy with ε=0.1, use federated learning to keep data decentralized, encrypt all data with AES-256, obtain explicit consent specifying exact data uses, and provide opt-out mechanisms"
+
+❌ **Ignoring Trade-offs**: Claiming perfect fairness and accuracy
+✅ **Acknowledging Complexity**: "Achieving demographic parity may reduce overall accuracy by 3-5%; I prioritize fairness because [justification], and will mitigate accuracy loss through [methods]"
+
+❌ **Passive Voice**: "Bias will be checked"
+✅ **Personal Ownership**: "I will personally review bias audit results monthly and halt deployment if issues are found"
+
+---
+
+## 🏥 Bonus Task: Policy Proposal (Extra 10%)
+
+### Overview
+Draft a comprehensive 1-page policy guideline for ethical AI use in healthcare, addressing consent, bias mitigation, and transparency.
+
+### Policy Components Required
+
+**1. Patient Consent Protocols** (30%)
+- When/how patients are informed about AI use
+- Consent form requirements
+- Opt-out procedures
+- Special considerations for vulnerable populations
+
+**2. Bias Mitigation Strategies** (40%)
+- Pre-deployment testing requirements
+- Training data standards
+- Ongoing monitoring procedures
+- Response protocols when bias is detected
+
+**3. Transparency Requirements** (30%)
+- What information must be disclosed
+- To whom (patients, providers, regulators)
+- Documentation standards
+- Explainability requirements
+
+### Format Guidelines
+
+**Length**: Aim for 800-1200 words (expandable if needed for comprehensiveness)
+
+**Structure**:
+```
+# Policy Title
+
+## Purpose Statement
+[1-2 sentences on policy goals]
+
+## 1. Patient Consent and Autonomy
+### 1.1 Informed Consent Requirements
+[Specific requirements]
+
+### 1.2 Right to Explanation
+[Patient rights]
+
+### 1.3 Vulnerable Populations
+[Special protections]
+
+## 2. Bias Mitigation and Fairness
+### 2.1 Pre-Deployment Testing
+[Requirements before clinical use]
+
+### 2.2 Training Data Standards
+[Data quality requirements]
+
+### 2.3 Ongoing Monitoring
+[Continuous oversight]
+
+## 3. Transparency and Explainability
+### 3.1 Clinical Decision Support
+[Provider-facing transparency]
+
+### 3.2 Patient-Facing Disclosures
+[Patient communication]
+
+## 4. Privacy and Data Security
+[Brief data protection requirements]
+
+## 5. Accountability and Governance
+[Oversight mechanisms]
+
+## 6. Enforcement
+[Compliance and penalties]
+```
+
+### Writing Tips
+
+**Be Specific and Actionable**:
+- ❌ "Systems should be fair"
+- ✅ "Systems must demonstrate <5% performance disparity across racial groups as measured by sensitivity and specificity"
+
+**Use Clear Language**:
+- Avoid jargon where possible
+- Define technical terms
+- Write for healthcare administrators, not just AI experts
+
+**Include Enforcement**:
+- Policies without teeth are ignored
+- Specify: audits, penalties, certification requirements
+
+**Balance Rigor and Feasibility**:
+- Standards should be high but achievable
+- Consider implementation costs and timelines
+- Provide examples and resources
+
+### Evaluation Rubric
+
+| Criterion | Excellent (9-10 pts) | Good (7-8 pts) | Needs Improvement (5-6 pts) |
+|-----------|---------------------|----------------|----------------------------|
+| **Comprehensiveness** | Addresses all required components in depth | Covers required areas with some gaps | Missing key components |
+| **Specificity** | Concrete, measurable requirements throughout | Mix of specific and general guidance | Mostly vague statements |
+| **Feasibility** | Realistic, implementable standards | Somewhat practical but challenges noted | Unrealistic or no implementation path |
+| **Legal/Ethical Grounding** | Cites relevant regulations, ethical frameworks | Some grounding in standards | Lacks foundation |
+
+### Real-World Examples to Reference
+
+**Existing Healthcare AI Policies**:
+- FDA's AI/ML Software as Medical Device Action Plan
+- WHO's Ethics and Governance of AI for Health
+- EU Medical Device Regulation (MDR) 2017/745
+- UK's Code of Conduct for Data-Driven Health Technologies
+
+**Your policy should be MORE comprehensive than these, incorporating lessons from:**
+- GDPR
+- Clinical trial informed consent standards
+- Health equity frameworks
+- Algorithm accountability literature
+
+---
+
+## 🛠️ Installation Guide
+
+### Prerequisites
+- Python 3.8 or higher
+- pip (Python package manager)
+- Git (for cloning repository)
+- Jupyter Notebook (optional, for interactive analysis)
+
+### Step-by-Step Installation
+
+**1. Clone Repository**
+```bash
+git clone https://github.com/yourusername/ai-ethics-assignment.git
+cd ai-ethics-assignment
+```
+
+**2. Create Virtual Environment** (Recommended)
+```bash
+# macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+
+# Windows
+python -m venv venv
+venv\Scripts\activate
+```
+
+**3. Install Dependencies**
+```bash
+# Install from requirements file
+pip install -r part3_practical_audit/requirements.txt
+
+# Or install individually
+pip install aif360==0.5.0
+pip install pandas==1.5.3
+pip install numpy==1.24.3
+pip install matplotlib==3.7.1
+pip install seaborn==0.12.2
+pip install scikit-learn==1.2.2
+pip install jupyter
+```
+
+**4. Verify Installation**
+```bash
+python -c "import aif360; print('AIF360 version:', aif360.__version__)"
+python -c "import pandas; print('Pandas version:', pandas.__version__)"
+```
+
+**5. Download Dataset** (if needed)
+```bash
+cd part3_practical_audit/data
+wget https://raw.githubusercontent.com/propublica/compas-analysis/master/compas-scores-two-years.csv
+```
+
+### Troubleshooting
+
+**Issue**: `aif360` installation fails
+**Solution**:
+```bash
+# Install build tools first
+pip install --upgrade pip setuptools wheel
+pip install Cython
+pip install aif360
+```
+
+**Issue**: `ImportError: No module named 'aif360.datasets'`
+**Solution**:
+```bash
+pip uninstall aif360
+pip install aif360==0.5.0
+```
+
+**Issue**: Matplotlib figures not displaying
+**Solution**:
+```bash
+# For Jupyter
+%matplotlib inline
+
+# For Python script
+import matplotlib
+matplotlib.use('TkAgg')  # or 'Qt5Agg'
+```
+
+---
+
+## 🚀 Running the Code
+
+### Option 1: Python Script
+
+```bash
+cd part3_practical_audit
+python compas_bias_audit.py
+```
+
+**Expected Output**:
+```
+================================================================================
+COMPAS RECIDIVISM DATASET - RACIAL BIAS AUDIT
+Using AI Fairness 360 Toolkit
+================================================================================
+
+Dataset Shape: (7214, 52)
+
+Columns: ['age', 'race', 'sex', 'priors_count', 'decile_score', 'two_year_recid', ...]
+
+================================================================================
+EXPLORATORY DATA ANALYSIS
+================================================================================
+
+Race Distribution:
+African-American    3696
+Caucasian           2454
+Hispanic             637
+Other                377
+Asian                 31
+Native American       19
+
+✓ Saved: compas_exploratory_analysis.png
+
+================================================================================
+FAIRNESS METRICS ANALYSIS
+================================================================================
+
+Statistical Parity Difference: -0.1936
+Disparate Impact: 0.6415
+
+================================================================================
+ERROR RATE ANALYSIS
+================================================================================
+
+Caucasian:
+  False Positive Rate: 0.2329
+  False Negative Rate: 0.4779
+
+African-American:
+  False Positive Rate: 0.4488
+  False Negative Rate: 0.2804
+
+✓ Saved: compas_error_rates.png
+
+================================================================================
+BIAS MITIGATION - REWEIGHING
+================================================================================
+
+BEFORE Mitigation:
+  Statistical Parity Difference: -0.1936
+  Disparate Impact: 0.6415
+
+AFTER Mitigation:
+  Statistical Parity Difference: -0.0134
+  Disparate Impact: 0.8932
+
+✓ Saved: compas_bias_mitigation.png
+
+================================================================================
+AUDIT COMPLETE
+================================================================================
+```
+
+### Option 2: Jupyter Notebook
+
+```bash
+cd part3_practical_audit
+jupyter notebook compas_bias_audit.ipynb
+```
+
+**Advantages of Jupyter**:
+- Interactive cell-by-cell execution
+- Inline visualizations
+- Easy experimentation
+- Better for learning/teaching
+
+**Workflow**:
+1. Open notebook in browser
+2. Run cells sequentially (Shift+Enter)
+3. Modify parameters and re-run
+4. Export as PDF/HTML for submission
+
+### Option 3: Google Colab
+
+**For users without local Python setup**:
+
+1. Upload files to Google Drive
+2. Open new Colab notebook
+3. Mount Drive:
+```python
+from google.colab import drive
+drive.mount('/content/drive')
+```
+4. Install dependencies:
+```python
+!pip install aif360 pandas matplotlib seaborn scikit-learn
+```
+5. Copy/paste audit code or upload `.py` file
+6. Run cells
+
+---
+
+## 📊 Results and Findings
+
+### Summary of Key Results
+
+**Dataset Composition**:
+- **Total Defendants**: 7,214
+- **African-American**: 51.2% (3,696)
+- **Caucasian**: 34.0% (2,454)
+- **Hispanic**: 8.8% (637)
+- **Other**: 5.2% (377)
+- **Male**: 81.5%
+- **Average Age**: 34.4 years
+
+**Actual Recidivism Rates**:
+- **Overall**: 45.1%
+- **African-American**: 51.4%
+- **Caucasian**: 39.4%
+- **Difference**: 12 percentage points
+
+**COMPAS Risk Score Assignment**:
+- **African-American Average**: 5.96
+- **Caucasian Average**: 4.73
+- **Difference**: 1.23 points (on 1-10 scale)
+
+**Classification Using Threshold (Score >= 5 = High Risk)**:
+
+---
+## 🧑‍💻 Author  
+
+**Course:** AI for Software Engineering  
+**Week:** 7  
+**Institution:** [PLP AFRICA ACADEMY]  
+
+** GROUP MEMBERS:**  
+
+**1.** [Stephen Odhiambo]  **Email:** (stephenodhiambo008@gmail.com) 
+**2.** [Jackline Biwott]  **Email:** (biwottjackline72@gmail.com) 
+
+November 2025
+
+---
+
+## 🆘 Support
+
+For questions or issues:
+- Create an issue in GitHub repository
+- Contact: [stephenodhiambo008@gmail.com , biwottjackline72@gmail.com]
+- PLP Community 
+
+## 👥 Acknowledgments
+
+Special thanks to:
+- PLP Academy instructors for guidance
+
+---
