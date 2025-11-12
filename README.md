@@ -1913,6 +1913,7 @@ drive.mount('/content/drive')
 ** GROUP MEMBERS:**  
 
 **1.** [Stephen Odhiambo]  **Email:** (stephenodhiambo008@gmail.com) 
+
 **2.** [Jackline Biwott]  **Email:** (biwottjackline72@gmail.com) 
 
 November 2025
@@ -1923,7 +1924,10 @@ November 2025
 
 For questions or issues:
 - Create an issue in GitHub repository
-- Contact: [stephenodhiambo008@gmail.com , biwottjackline72@gmail.com]
+- Contact: [stephenodhiambo008@gmail.com &
+  
+-  biwottjackline72@gmail.com]
+
 - PLP Community 
 
 ## 👥 Acknowledgments
